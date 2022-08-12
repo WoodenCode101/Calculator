@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        
+        .container{
+            text-align: center;
+            margin: 10px;
+        }
+        table{
+            margin: auto;
+        }
+        input{
+            display: inline-flex;
+            flex-wrap: wrap;
+            color:dodgerblue;
+            width: 220px;
+            height: 130px;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 35px;
+            border: 2px solid green;
+            background: aliceblue/*radial-gradient(pink 50%,yellow)*/;
+            
+        }
+        button{
+            color: dodgerblue;
+            width: 50px;
+            height: 50px;
+            margin: 2px;
+            border: none;
+            border-radius: 50%;
+            font-size: 20px;
+            box-shadow: 3px 3px 5px black;
+        }
+        button:hover{background-color:black;
+            /*margin: 5px;*/
+        }
+        .a{
+            background-color:yellow;
+        }
+        .b{
+            background-color: yellow;
+        }
+        .c{
+            background-color: yellow;
+        }
+        .d{
+            background-color: yellow;
+        }
+        .e{
+            background-color: yellow;
+        }
+        .f{
+            background-color: yellow;
+        }
+        .g{
+            background-color: yellow;
+        }
+        .h{
+            background-color: yellow;
+        }
+
+        .calculator{
+            border: none/*5px solid #a4b0be*/ ;
+            background-color:#192a56/* rgb(83, 107, 107)*/;
+            padding: 7px;
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 10px 10px 15px;
+        }
+        p{
+            margin-top: 30px;
+            font-size: 20px;
+            color: rgb(124, 212, 35);
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="calculator">
+            <input type="text" name="screen" id="screen">
+
+            <table>
+                <tr>
+                    <td><button class="a">(</button></td>
+                    <td><button class="b">)</button></td>
+                    <td><button class="c">C</button></td>
+                    <td><button class="d">/</button></td>
+                </tr>
+
+                <tr>
+                    <td><button>7</button></td>
+                    <td><button>8</button></td>
+                    <td><button>9</button></td>
+                    <td><button class="e">*</button></td>
+                </tr>
+
+                <tr>
+                    <td><button>4</button></td>
+                    <td><button>5</button></td>
+                    <td><button>6</button></td>
+                    <td><button class="f">-</button></td>
+                </tr>
+
+                <tr>
+                    <td><button>1</button></td>
+                    <td><button>2</button></td>
+                    <td><button>3</button></td>
+                    <td><button class="g">+</button></td>
+                </tr>
+
+                <tr>
+                    <td><button>0</button></td>
+                    <td><button>00</button></td>
+                    <td><button>.</button></td>
+                    <td><button class="h">=</button></td>
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+     <p align="right">~Sayeed.</p>
+</body>
+
+<script>
+
+    let screen = document.getElementById('screen');
+    buttons=document.querySelectorAll('button')
+    let screenValue='';
+    for(item of buttons){
+        item.addEventListener('click',(e)=>{
+            buttonText=e.target.innerText;
+            console.log('Button text is',buttonText);
+            if(buttonText=='*'){
+                buttonText='*';
+                screenValue += buttonText;
+                screen.value=screenValue;
+            }
+            else if(buttonText=='C'){
+                screenValue="";
+                screen.value=screenValue;
+            }
+            else if(buttonText=='='){
+                screen.value=eval(screenValue);
+            }
+            else{
+                screenValue += buttonText;
+                screen.value = screenValue;
+            }
+
+        })
+    }
+</script>
+</html>
